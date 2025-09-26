@@ -1,0 +1,51 @@
+# --- Setup ---
+git init                  # Create a new local Git repository in the current folder
+git clone <url>           # Copy (clone) a remote repository to your computer
+git config --global user.name "Your Name"     # Set your Git username
+git config --global user.email "you@example.com" # Set your Git email (for commits)
+
+# --- Staging & Committing ---
+git status                # Show the state of your working directory and staging area
+git add <file>            # Stage a specific file to be committed
+git add .                 # Stage all changed files
+git reset <file>          # Unstage a file but keep changes in working directory
+git commit -m "message"   # Save staged changes as a new commit with a message
+git commit --amend        # Modify the most recent commit (message or contents)
+
+# --- Branches ---
+git branch                # List all branches, highlight the current one
+git branch <name>         # Create a new branch with the given name
+git checkout <name>       # Switch to another branch
+git checkout -b <name>    # Create a new branch AND switch to it
+git branch -d <name>      # Delete a branch (if already merged)
+
+# --- Remote Repositories ---
+git remote -v             # Show the remote repositories linked to your project
+git fetch                 # Download changes from remote but don’t merge
+git pull                  # Fetch changes and merge them into your current branch
+git push origin <branch>  # Upload (push) your branch commits to the remote
+git push -u origin <branch> # Push and set the branch to track remote (link local<->remote)
+
+# --- Merging & Rebasing ---
+git merge <branch>        # Merge another branch into your current branch
+git rebase <branch>       # Move your commits to be on top of another branch
+git rebase -i <branch>    # Interactive rebase (edit, squash, or reorder commits)
+
+# --- Undo / Fix Mistakes ---
+git restore <file>        # Discard changes in working directory for a file
+git restore --staged <file> # Unstage a file (keep local changes)
+git reset --hard          # Reset everything to the last commit (⚠️ deletes changes)
+git checkout -- <file>    # (Old way) Discard changes in a file
+git revert <commit>       # Create a new commit that undoes the changes from a given commit
+
+# --- Stash (Temporary Save) ---
+git stash                 # Save changes without committing (clean working dir)
+git stash -u              # Save changes AND untracked files
+git stash pop             # Reapply last stashed changes
+git stash list            # Show list of stashed changes
+
+# --- Log & History ---
+git log                   # Show commit history
+git log --oneline --graph # Show compact commit history with branch graph
+git diff                  # Show differences in unstaged changes
+git diff --staged         # Show differences in staged changes
