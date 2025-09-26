@@ -1,0 +1,8 @@
+git commit: records changes in the local repo
+git branch: creates or deletes bramnches
+git checkout: switches to a branch
+git pull: downlaods remote repository to local 
+git push: Sends your local commits to a remote repository.
+git merge: Moves or reapplies commits from one branch onto another base commit.
+git rebase: Moves or reapplies commits from one branch onto another base commit.
+git fetch: Downloads changes from a remote repository but does not merge them.
