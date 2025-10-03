@@ -19,7 +19,6 @@ static const struct gpio_dt_spec leds[] = { // Array of LED specifications
 
 int main(void) {
     int ret;
-    int counter = 0;
     for (int i = 0; i < 4; i++) { // check each led 
         if (!gpio_is_ready_dt(&leds[i])) { //  if not ready fail
             return -1; 
@@ -33,18 +32,11 @@ int main(void) {
 
     while (1) {
         
-        gpio_pin_toggle_dt(&leds[0]);
-        
-        
-        
-        counter++;
-        if (counter > 1) {
-            counter = 0;
-            gpio_pin_toggle_dt(&leds[3]); 
-            gpio_pin_toggle_dt(&leds[1]);
-            gpio_pin_toggle_dt(&leds[2]);
+        for (int i = 0; i < 4; i++) {
+            gpio_pin_toggle_dt(&leds[i]); // toggle each led
+            k_msleep(1000); // wait 1 second
         }
-        k_msleep(1000); // wait 1 second
+        
     }
 
     return 0;
